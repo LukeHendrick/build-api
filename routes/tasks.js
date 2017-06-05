@@ -4,14 +4,14 @@ module.exports = app => {
   app.route('/tasks')
     .get((req, res) => {
       Tasks.findAll({})
-        .then(resu;t => res.json(result))
+        .then(result => res.json(result))
         .catch(error => {
           res.status(412).json({msg: error.message});
         });
     })
     .post((req, res) => {
       Tasks.create(req.body)
-        .then(result => res.json(result));
+        .then(result => res.json(result))
         .catch(error => {
           res.status(412).json({msg: error.message});
         });
